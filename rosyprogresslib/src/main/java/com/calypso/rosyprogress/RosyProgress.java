@@ -84,6 +84,8 @@ public class RosyProgress extends View {
 
     private int mTextSize;
 
+    private boolean mIsShowSmall;
+
     public RosyProgress(Context context) {
         this(context, null);
     }
@@ -105,7 +107,8 @@ public class RosyProgress extends View {
 
     private void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.RosyProgress);
-        antiAlias = typedArray.getBoolean(R.styleable.RosyProgress_antiAlias, ProgressConfig.ISSHOW_SMALL);
+        mIsShowSmall = typedArray.getBoolean(R.styleable.RosyProgress_is_show_small, ProgressConfig.ISSHOW_SMALL);
+        antiAlias = typedArray.getBoolean(R.styleable.RosyProgress_antiAlias, true);
         mMaxValue = typedArray.getFloat(R.styleable.RosyProgress_maxValue, ProgressConfig.DEFAULT_MAX_VALUE);
         mValue = typedArray.getFloat(R.styleable.RosyProgress_value, ProgressConfig.DEFAULT_VALUE);
         mCircleSolideColor = typedArray.getColor(R.styleable.RosyProgress_circle_solide_color, Color.WHITE);
@@ -210,14 +213,19 @@ public class RosyProgress extends View {
         mProgressPaint.setShader(mSweepGradient);
         canvas.drawArc(new RectF(0, 0, mCircleRadius * 2, mCircleRadius * 2), 2, 360 * currentAngle, false, mProgressPaint);
 
-        float currentDegreeFlag = 360 * currentAngle + extraDistance + 90;
-        float smallCircleX = 0, smallCircleY = 0;
-        float hudu = (float) Math.abs(Math.PI * currentDegreeFlag / 180);//Math.abs：绝对值 ，Math.PI：表示π ， 弧度 = 度*π / 180
-        smallCircleX = (float) Math.abs(Math.sin(hudu) * mCircleRadius + mCircleRadius);
-        smallCircleY = (float) Math.abs(mCircleRadius - Math.cos(hudu) * mCircleRadius);
-        canvas.drawCircle(smallCircleX, smallCircleY, smallCircleRadius, mSmallCirclePaint);
-        canvas.drawCircle(smallCircleX, smallCircleY, smallCircleRadius - mSmallCircleStrokeWidth, mSmallCircleSolidePaint);//画小圆的实心
-        canvas.restore();
+        if (mIsShowSmall) {
+            float currentDegreeFlag = 360 * currentAngle + extraDistance + 90;
+            float smallCircleX = 0, smallCircleY = 0;
+            float hudu = (float) Math.abs(Math.PI * currentDegreeFlag / 180);//Math.abs：绝对值 ，Math.PI：表示π ， 弧度 = 度*π / 180
+            smallCircleX = (float) Math.abs(Math.sin(hudu) * mCircleRadius + mCircleRadius);
+            smallCircleY = (float) Math.abs(mCircleRadius - Math.cos(hudu) * mCircleRadius);
+            canvas.drawCircle(smallCircleX, smallCircleY, smallCircleRadius, mSmallCirclePaint);
+            canvas.drawCircle(smallCircleX, smallCircleY, smallCircleRadius - mSmallCircleStrokeWidth, mSmallCircleSolidePaint);//画小圆的实心
+            canvas.restore();
+        }else{
+            canvas.restore();
+        }
+
 
     }
 
