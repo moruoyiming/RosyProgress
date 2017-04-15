@@ -8,22 +8,101 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
 
-    <com.calypso.rosyprogress.RosyProgress
-        android:id="@+id/rosyProgress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:padding="20dp"
-        app:circle_radius="100dp"
-        app:is_show_small="false"></com.calypso.rosyprogress.RosyProgress>
+        <com.calypso.rosyprogress.RosyProgress
+            android:id="@+id/rosyProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
+            app:circle_radius="100dp"
+            app:is_show_small="false"></com.calypso.rosyprogress.RosyProgress>
+    </RelativeLayout>
 
-    <com.calypso.rosyprogress.RosyProgress
-        android:id="@+id/rosyProgress2"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rosyProgress"
-        android:layout_centerHorizontal="true"
-        android:padding="20dp"
-        app:circle_radius="100dp"></com.calypso.rosyprogress.RosyProgress>
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp">
+
+            <Switch
+                android:id="@+id/switchLeftright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="left"
+                android:checked="false"
+                android:text="显示/隐藏" />
+
+            <Button
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:text="走你" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="半径" />
+
+        <SeekBar
+            android:id="@+id/seekBarR"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:max="100" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="X轴旋转" />
+
+        <SeekBar
+            android:id="@+id/seekBarX"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:max="180" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="Z轴旋转" />
+
+        <SeekBar
+            android:id="@+id/seekBarZ"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:max="360" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="旋转间隔时间" />
+
+        <SeekBar
+            android:id="@+id/seekBarTime"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:max="1000" />
+
+    </LinearLayout>
 </RelativeLayout>

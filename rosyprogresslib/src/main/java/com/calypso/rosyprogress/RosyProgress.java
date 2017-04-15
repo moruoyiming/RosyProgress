@@ -86,6 +86,8 @@ public class RosyProgress extends View {
 
     private boolean mIsShowSmall;
 
+    private long mAnimatorTime = 1500;
+
     public RosyProgress(Context context) {
         this(context, null);
     }
@@ -192,14 +194,14 @@ public class RosyProgress extends View {
         }
         float start = currentAngle;
         float end = value / mMaxValue;
-        setValueAnimator(start, end, 1500);
+        setValueAnimator(start, end, mAnimatorTime);
     }
 
     private void drawProgress(Canvas canvas) {
         textDesc = String.format("%.0f%%", currentAngle * 100);
         float y = mCenterPoint.y - (mTextPaint.descent() + mTextPaint.ascent());
         float textWidth = mTextPaint.measureText(textDesc);
-        canvas.drawText(textDesc, mCircleRadius-textWidth/4, y, mTextPaint);
+        canvas.drawText(textDesc, mCircleRadius - textWidth / 4, y, mTextPaint);
     }
 
     private void drawCircle(Canvas canvas) {
@@ -222,7 +224,7 @@ public class RosyProgress extends View {
             canvas.drawCircle(smallCircleX, smallCircleY, smallCircleRadius, mSmallCirclePaint);
             canvas.drawCircle(smallCircleX, smallCircleY, smallCircleRadius - mSmallCircleStrokeWidth, mSmallCircleSolidePaint);//画小圆的实心
             canvas.restore();
-        }else{
+        } else {
             canvas.restore();
         }
 
@@ -271,4 +273,27 @@ public class RosyProgress extends View {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spVal, getResources().getDisplayMetrics());
     }
 
+    public int getmCircleRadius() {
+        return mCircleRadius;
+    }
+
+    public void setmCircleRadius(int mCircleRadius) {
+        this.mCircleRadius = mCircleRadius;
+    }
+
+    public boolean ismIsShowSmall() {
+        return mIsShowSmall;
+    }
+
+    public void setmIsShowSmall(boolean mIsShowSmall) {
+        this.mIsShowSmall = mIsShowSmall;
+    }
+
+    public long getmAnimatorTime() {
+        return mAnimatorTime;
+    }
+
+    public void setmAnimatorTime(long mAnimatorTime) {
+        this.mAnimatorTime = mAnimatorTime;
+    }
 }
