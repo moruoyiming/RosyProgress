@@ -10,11 +10,20 @@
 
 
     <com.calypso.rosyprogress.RosyProgress
-        android:id="@+id/countdownProgress"
+        android:id="@+id/rosyProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:is_show_small="false"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        app:circle_radius="100dp"
+        app:is_show_small="false"></com.calypso.rosyprogress.RosyProgress>
+
+    <com.calypso.rosyprogress.RosyProgress
+        android:id="@+id/rosyProgress2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rosyProgress"
+        android:layout_centerHorizontal="true"
         android:padding="20dp"
         app:circle_radius="100dp"></com.calypso.rosyprogress.RosyProgress>
 </RelativeLayout>
