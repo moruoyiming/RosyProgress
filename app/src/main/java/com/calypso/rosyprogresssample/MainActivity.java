@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         mSeekBarTime = (SeekBar) findViewById(R.id.seekBarTime);
         mCheckbox = (Button) findViewById(R.id.checkbox);
         mSwitchLeftright = (Switch) findViewById(R.id.switchLeftright);
-        mSeekBarX.setProgress(mSeekBarX.getMax() / 2);
-        mSeekBarZ.setProgress(mSeekBarZ.getMax() / 2);
+        mSeekBarX.setProgress(0);
+        mSeekBarZ.setProgress(0);
         initLinstener();
     }
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         mSeekBarTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                long time = (long) (1.0f * progress / seekBar.getMax() * 1000+1000);
+                long time = (long) (1.0f * progress / seekBar.getMax() * 1000 + 1000);
                 if (time <= 1000)
                     time = 1000;
                 rosyProgress.setmAnimatorTime(time);
@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int r = progress / seekBar.getMax() * 100;
+                Log.i("MainActivity","progress   "+progress+"  r    "+r);
                 rosyProgress.setmCircleRadius(r <= 0 ? 1 : r);
                 rosyProgress.postInvalidate();
             }
@@ -101,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 //                carrousel.setRotationX(progress - seekBar.getMax() / 2);
-//                carrousel.refreshLayout();
+//                rosyProgress.setmCircleRadius(progress / 10 + 5);
+                rosyProgress.postInvalidate();
             }
 
             @Override

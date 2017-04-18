@@ -2,36 +2,36 @@
 <resources>
     <declare-styleable name="RosyProgress">
         <!-- 默认圆实心的颜色 -->
-        <attr name="circle_solide_color" format="color"/>
+        <attr name="circle_solide_color" format="color" />
         <!-- 默认圆边框的颜色 -->
-        <attr name="circle_stroke_color" format="color"/>
+        <attr name="circle_stroke_color" format="color" />
         <!-- 默认圆边框的宽度 -->
-        <attr name="circle_stroke_width" format="dimension"/>
+        <attr name="circle_stroke_width" format="dimension" />
         <!-- 默认圆的半径 -->
-        <attr name="circle_radius" format="dimension"/>
+        <attr name="circle_radius" format="dimension" />
         <!-- 进度条的颜色 -->
-        <attr name="progress_color" format="color"/>
+        <attr name="progress_color" format="color" />
         <!-- 进度条的宽度 -->
-        <attr name="progress_width" format="dimension"/>
+        <attr name="progress_width" format="dimension" />
         <!-- 小圆的实心颜色 -->
-        <attr name="small_circle_solide_color" format="color"/>
+        <attr name="small_circle_solide_color" format="color" />
         <!-- 小圆的边框颜色 -->
-        <attr name="small_circle_stroke_color" format="color"/>
+        <attr name="small_circle_stroke_color" format="color" />
         <!-- 小圆的边框宽度 -->
-        <attr name="small_circle_stroke_width" format="dimension"/>
+        <attr name="small_circle_stroke_width" format="dimension" />
         <!-- 小圆的半径 -->
-        <attr name="small_circle_radius" format="dimension"/>
+        <attr name="small_circle_radius" format="dimension" />
         <!-- 文字的颜色 -->
-        <attr name="text_color" format="color"/>
+        <attr name="text_color" format="color" />
         <!-- 文字的字体大小 -->
-        <attr name="text_size" format="dimension"/>
+        <attr name="text_size" format="dimension" />
 
-        <attr name="maxValue" format="dimension"/>
+        <attr name="maxValue" format="integer" />
 
-        <attr name="value" format="dimension"/>
+        <attr name="value" format="integer" />
 
-        <attr name="is_show_small" format="boolean"/>
+        <attr name="is_show_small" format="boolean" />
         <!-- 是否开启抗锯齿 -->
-        <attr name="antiAlias" format="boolean"/>
+        <attr name="antiAlias" format="boolean" />
     </declare-styleable>
 </resources>
