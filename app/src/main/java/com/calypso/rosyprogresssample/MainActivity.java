@@ -96,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
         mSeekBarWidth.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                carrousel.setRotationX(progress - seekBar.getMax() / 2);
-//                rosyProgress.setmCircleRadius(progress / 10 + 5);
                 rosyProgress.setmCircleStrokeWidth(progress * 10 / 100);
                 rosyProgress.postInvalidate();
             }
