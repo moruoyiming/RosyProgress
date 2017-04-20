@@ -19,45 +19,51 @@ gradle
 
         compile 'com.dalong:carrousellayout:1.0.0'   
           
-or Maven
-
-        <dependency>
-          <groupId>com.dalong</groupId>
-          <artifactId>carrousellayout</artifactId>
-          <version>1.0.0</version>
-          <type>pom</type>
-        </dependency>                    
-
 xml:
 
-         <com.dalong.carrousellayout.CarrouselLayout
-               android:id="@+id/carrousel"
-               app:rotateDirection="anticlockwise"
-               app:r="200dp"
-               app:rotationTime="3000"
-               android:gravity="center"
-               android:layout_marginBottom="180dp"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
-              <ImageView
-                  android:src="@mipmap/image1"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
-              <ImageView
-                  android:src="@mipmap/image2"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" />
-                  ...
-           </com.dalong.carrousellayout.CarrouselLayout>
+         <com.calypso.rosyprogress.RosyProgress
+                    android:id="@+id/rosyProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:padding="5px"
+                    app:antiAlias="true"
+                    app:circle_radius="@dimen/circle_radius"
+                    app:circle_solide_color="@color/circle_solide_color"
+                    app:circle_stroke_color="@color/circle_stroke_color"
+                    app:circle_stroke_width="@dimen/circle_stroke_width"
+                    app:is_show_small="false"
+                    app:progress_width="@dimen/progress_width"
+                    app:small_circle_radius="@dimen/small_circle_radius"
+                    app:small_circle_solide_color="@color/small_circle_solide_color"
+                    app:small_circle_stroke_color="@color/small_circle_stroke_color"
+                    app:small_circle_stroke_width="@dimen/small_circle_stroke_width"
+                    app:text_color="@color/home_text_color"
+                    android:background="@color/colorAccent"
+                    app:text_size="@dimen/text_size_30"></com.calypso.rosyprogress.RosyProgress>
 
-
+                    app:antiAlias="true"//是否抗锯齿
+                    app:circle_radius="@dimen/circle_radius"//圆环半径
+                    app:circle_solide_color="@color/circle_solide_color"//圆环边框颜色
+                    app:circle_stroke_color="@color/circle_stroke_color"//圆环内部颜色
+                    app:circle_stroke_width="@dimen/circle_stroke_width"//圆环边框的宽度
+                    app:is_show_small="false"//是否显示小球标记
+                    app:progress_width="@dimen/progress_width"//进度条的宽度
+                    app:small_circle_radius="@dimen/small_circle_radius"//小圆标记半径
+                    app:small_circle_solide_color="@color/small_circle_solide_color"//小圆边框颜色
+                    app:small_circle_stroke_color="@color/small_circle_stroke_color"//小圆内部颜色
+                    app:small_circle_stroke_width="@dimen/small_circle_stroke_width"//小圆边框的宽度
+                    app:text_color="@color/home_text_color"//中间字体颜色
+                    android:background="@color/colorAccent"
+                    app:text_size="@dimen/text_size_30"//中间字体大小
 java:
 
-        CarrouselLayout carrousel= (CarrouselLayout) findViewById(R.id.carrousel);
-        carrousel.setR(width/3)//设置R的大小
-                 .setAutoRotation(false)//是否自动切换
-                 .setAutoRotationTime(1500);//自动切换的时间  单位毫秒
-
+      RosyProgress rosyProgress = (RosyProgress) findViewById(R.id.rosyProgress);
+      rosyProgress.setValue(80f);//设置进度条
+      rosyProgress.setmAnimatorTime(time);//设置动画时间间隔
+      rosyProgress.setmCircleRadius(r);//设置半径
+      rosyProgress.setmCircleStrokeWidth(r);//设置小球半径
+      rosyProgress.ismIsShowSmall(true);//是否显示小球标记
 
 #License
 
