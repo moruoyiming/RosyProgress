@@ -15,9 +15,17 @@ Android 圆形进度条
 #How to Use
 
 gradle
+Step 1. Add the JitPack repository to your build file
+        Add it in your root build.gradle at the end of repositories:
+          	allprojects {
+         		repositories {
+         			...
+         			maven { url 'https://jitpack.io' }
+         		}
+         	}
+Step 2. Add the dependency
+         compile 'com.github.moruoyiming:RosyProgress:1.0.1'
 
-        compile 'com.dalong:carrousellayout:1.0.0'   
-          
 xml:
 
          <com.calypso.rosyprogress.RosyProgress
