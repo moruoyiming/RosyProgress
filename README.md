@@ -26,7 +26,8 @@ Step 1. Add the JitPack repository to your build file
          		}
          	}
 
-Step 2. Add the dependency
+Step 2. Add the dependency:
+
          compile 'com.github.moruoyiming:RosyProgress:1.0.1'
 
 xml:
