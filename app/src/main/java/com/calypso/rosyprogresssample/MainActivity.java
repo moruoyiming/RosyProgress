@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
         mSeekBarRadius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                float r = progress * 10 / seekBar.getMax();
+                float r = progress * 30 / seekBar.getMax();
                 Log.i("MainActivity", "progress   " + progress + "  r    " + "    " + progress / seekBar.getMax() + "   " + seekBar.getMax());
-                rosyProgress.setmCircleRadius(100 + (int) r);
+                rosyProgress.setmCircleRadius(160 + (int) r);
                 rosyProgress.postInvalidate();
             }
 
