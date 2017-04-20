@@ -1,13 +1,12 @@
 # RosyProgress
 Android 圆形进度条
 
+
 #Preview
-![image](https://github.com/dalong982242260/AndroidCarrouselLayout/blob/master/gif/carrousel01.gif?raw=true)
-![image](https://github.com/dalong982242260/AndroidCarrouselLayout/blob/master/gif/carrousel02.gif?raw=true)
-![image](https://github.com/dalong982242260/AndroidCarrouselLayout/blob/master/gif/carrousel03.gif?raw=true)
-![image](https://github.com/dalong982242260/AndroidCarrouselLayout/blob/master/gif/carrousel04.gif?raw=true)
-![image](https://github.com/dalong982242260/AndroidCarrouselLayout/blob/master/gif/carrousel05.gif?raw=true)
-![image](https://github.com/dalong982242260/AndroidCarrouselLayout/blob/master/gif/carrousel06.gif?raw=true)
+
+![image](https://github.com/moruoyiming/RosyProgress/blob/master/pics/device-2017-04-20-134955.gif)
+![image](https://github.com/moruoyiming/RosyProgress/blob/master/pics/device-2017-04-20-140656.png)
+![image](https://github.com/moruoyiming/RosyProgress/blob/master/pics/device-2017-04-20-140727.png)
 
 #Example
 
