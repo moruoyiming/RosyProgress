@@ -42,6 +42,8 @@ xml:
                     android:background="@color/colorAccent"
                     app:text_size="@dimen/text_size_30"></com.calypso.rosyprogress.RosyProgress>
 
+标注:
+
                     app:antiAlias="true"//是否抗锯齿
                     app:circle_radius="@dimen/circle_radius"//圆环半径
                     app:circle_solide_color="@color/circle_solide_color"//圆环边框颜色
@@ -56,6 +58,7 @@ xml:
                     app:text_color="@color/home_text_color"//中间字体颜色
                     android:background="@color/colorAccent"
                     app:text_size="@dimen/text_size_30"//中间字体大小
+
 java:
 
       RosyProgress rosyProgress = (RosyProgress) findViewById(R.id.rosyProgress);
