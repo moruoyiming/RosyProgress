@@ -10,7 +10,7 @@ Android 圆形进度条
 
 #Example
 
-[app-debug.apk](http://fir.im/bj45?release_id=5827dbc0959d697e2d001263)
+[app-debug.apk](https://github.com/moruoyiming/RosyProgress/raw/master/app-debug.apk)
 
 #How to Use
 
