@@ -214,7 +214,7 @@ public class RosyProgress extends View {
         textDesc = String.format("%.0f%%", currentAngle * 100);
         float textWidth = mTextPaint.measureText(textDesc);
         float textHeight = (mTextPaint.descent() + mTextPaint.ascent()) / 2;
-        canvas.drawText(textDesc, mCircleRadius - textWidth / 3, mCircleRadius + textHeight / 2, mTextPaint);
+        canvas.drawText(textDesc, getMeasuredWidth()/2 - textWidth / 2, getMeasuredHeight()/2 , mTextPaint);
     }
 
 
