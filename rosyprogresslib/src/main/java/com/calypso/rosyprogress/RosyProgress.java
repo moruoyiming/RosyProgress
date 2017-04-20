@@ -214,7 +214,7 @@ public class RosyProgress extends View {
         textDesc = String.format("%.0f%%", currentAngle * 100);
         float textWidth = mTextPaint.measureText(textDesc);
         float textHeight = (mTextPaint.descent() + mTextPaint.ascent()) / 2;
-        canvas.drawText(textDesc, mCircleRadius - textWidth / 3, mCircleRadius + textHeight/2, mTextPaint);
+        canvas.drawText(textDesc, mCircleRadius - textWidth / 3, mCircleRadius + textHeight / 2, mTextPaint);
     }
 
 
@@ -229,10 +229,10 @@ public class RosyProgress extends View {
             float currentDegreeFlag = 360 * currentAngle + extraDistance + 90;
             float smallCircleX = 0, smallCircleY = 0;
             float hudu = (float) Math.abs(Math.PI * currentDegreeFlag / 180);//Math.abs：绝对值 ，Math.PI：表示π ， 弧度 = 度*π / 180
-            smallCircleX = (float) Math.abs(Math.sin(hudu) * mCircleRadius + mCircleRadius);
-            smallCircleY = (float) Math.abs(mCircleRadius - Math.cos(hudu) * mCircleRadius);
-            canvas.drawCircle(smallCircleX + mCircleStrokeWidth / 2 + getPaddingLeft(), smallCircleY + mCircleStrokeWidth / 2 + getPaddingTop(), smallCircleRadius, mSmallCirclePaint);
-            canvas.drawCircle(smallCircleX + mCircleStrokeWidth / 2 + getPaddingLeft(), smallCircleY + mCircleStrokeWidth / 2 + getPaddingTop(), smallCircleRadius - mSmallCircleStrokeWidth, mSmallCircleSolidePaint);//画小圆的实心
+            smallCircleX = (float) Math.abs(Math.sin(hudu) * (mCircleRadius ) + mCircleRadius )+ mCircleStrokeWidth / 2 ;
+            smallCircleY = (float) Math.abs(mCircleRadius - Math.cos(hudu) * mCircleRadius)+ mCircleStrokeWidth / 2 + getPaddingTop();
+            canvas.drawCircle(smallCircleX, smallCircleY, smallCircleRadius, mSmallCirclePaint);
+            canvas.drawCircle(smallCircleX, smallCircleY, smallCircleRadius - mSmallCircleStrokeWidth, mSmallCircleSolidePaint);//画小圆的实心
             canvas.restore();
         } else {
             canvas.restore();
@@ -289,6 +289,10 @@ public class RosyProgress extends View {
 
     public void setmCircleRadius(int mCircleRadius) {
         this.mCircleRadius = mCircleRadius;
+        mRectF.left = mCenterPoint.x - mCircleRadius;
+        mRectF.top = mCenterPoint.y - mCircleRadius;
+        mRectF.right = mCenterPoint.x + mCircleRadius;
+        mRectF.bottom = mCenterPoint.y + mCircleRadius;
     }
 
     public boolean ismIsShowSmall() {
@@ -305,5 +309,15 @@ public class RosyProgress extends View {
 
     public void setmAnimatorTime(long mAnimatorTime) {
         this.mAnimatorTime = mAnimatorTime;
+    }
+
+    public int getmCircleStrokeWidth() {
+        return mCircleStrokeWidth;
+    }
+
+    public void setmCircleStrokeWidth(int mCircleStrokeWidth) {
+        this.mCircleStrokeWidth = mCircleStrokeWidth;
+        mProgressPaint.setStrokeWidth(mCircleStrokeWidth);
+        defaultCriclePaint.setStrokeWidth(mCircleStrokeWidth);
     }
 }

@@ -23,13 +23,14 @@
             app:circle_solide_color="@color/circle_solide_color"
             app:circle_stroke_color="@color/circle_stroke_color"
             app:circle_stroke_width="@dimen/circle_stroke_width"
-            app:is_show_small="true"
+            app:is_show_small="false"
             app:progress_width="@dimen/progress_width"
             app:small_circle_radius="@dimen/small_circle_radius"
             app:small_circle_solide_color="@color/small_circle_solide_color"
             app:small_circle_stroke_color="@color/small_circle_stroke_color"
             app:small_circle_stroke_width="@dimen/small_circle_stroke_width"
             app:text_color="@color/home_text_color"
+            android:background="@color/colorAccent"
             app:text_size="@dimen/text_size_30"></com.calypso.rosyprogress.RosyProgress>
     </RelativeLayout>
 
@@ -49,7 +50,7 @@
             android:layout_marginRight="15dp">
 
             <Switch
-                android:id="@+id/switchLeftright"
+                android:id="@+id/switchShowHide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -58,7 +59,7 @@
                 android:text="显示/隐藏" />
 
             <Button
-                android:id="@+id/checkbox"
+                android:id="@+id/start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -74,7 +75,7 @@
             android:text="半径" />
 
         <SeekBar
-            android:id="@+id/seekBarR"
+            android:id="@+id/seekBarRadius"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:max="100" />
@@ -86,7 +87,7 @@
             android:text="进度条粗细" />
 
         <SeekBar
-            android:id="@+id/seekBarX"
+            android:id="@+id/seekBarWidth"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:max="180" />
@@ -109,15 +110,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
-            android:text="旋转间隔时间"
-            android:visibility="gone" />
+            android:text="间隔时间" />
 
         <SeekBar
             android:id="@+id/seekBarTime"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:max="1000"
-            android:visibility="gone" />
+            android:max="1000" />
 
     </LinearLayout>
 </RelativeLayout>

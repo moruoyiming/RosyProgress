@@ -11,11 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import com.calypso.rosyprogress.RosyProgress;
 
@@ -23,12 +21,12 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private RosyProgress rosyProgress;
-    private SeekBar mSeekBarR;
-    private SeekBar mSeekBarX;
+    private SeekBar mSeekBarRadius;
+    private SeekBar mSeekBarWidth;
     private SeekBar mSeekBarZ;
     private SeekBar mSeekBarTime;
-    private Button mCheckbox;
-    private Switch mSwitchLeftright;
+    private Button mStart;
+    private Switch mSwitchShowHide;
     private int width;
 
     @Override
@@ -43,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
         width = dm.widthPixels;
         rosyProgress = (RosyProgress) findViewById(R.id.rosyProgress);
         rosyProgress.setValue(80f);
-        mSeekBarR = (SeekBar) findViewById(R.id.seekBarR);
-        mSeekBarX = (SeekBar) findViewById(R.id.seekBarX);
+        mSeekBarRadius = (SeekBar) findViewById(R.id.seekBarRadius);
+        mSeekBarWidth = (SeekBar) findViewById(R.id.seekBarWidth);
         mSeekBarZ = (SeekBar) findViewById(R.id.seekBarZ);
         mSeekBarTime = (SeekBar) findViewById(R.id.seekBarTime);
-        mCheckbox = (Button) findViewById(R.id.checkbox);
-        mSwitchLeftright = (Switch) findViewById(R.id.switchLeftright);
-        mSeekBarX.setProgress(0);
+        mStart = (Button) findViewById(R.id.start);
+        mSwitchShowHide = (Switch) findViewById(R.id.switchShowHide);
+        mSeekBarRadius.setProgress(0);
         mSeekBarZ.setProgress(0);
         initLinstener();
     }
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mSeekBarTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                long time = (long) (1.0f * progress / seekBar.getMax() * 1000 + 1000);
+                long time = (long) (1.0f * progress / seekBar.getMax() * 10000 + 1000);
                 if (time <= 1000)
                     time = 1000;
                 rosyProgress.setmAnimatorTime(time);
@@ -78,12 +76,12 @@ public class MainActivity extends AppCompatActivity {
         /**
          * 设置子半径R
          */
-        mSeekBarR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        mSeekBarRadius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int r = progress / seekBar.getMax() * 100;
-                Log.i("MainActivity","progress   "+progress+"  r    "+r);
-                rosyProgress.setmCircleRadius(r <= 0 ? 1 : r);
+                float r = progress * 10 / seekBar.getMax();
+                Log.i("MainActivity", "progress   " + progress + "  r    " + "    " + progress / seekBar.getMax() + "   " + seekBar.getMax());
+                rosyProgress.setmCircleRadius(100 + (int) r);
                 rosyProgress.postInvalidate();
             }
 
@@ -95,14 +93,12 @@ public class MainActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        /**
-         * X轴旋转
-         */
-        mSeekBarX.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        mSeekBarWidth.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 //                carrousel.setRotationX(progress - seekBar.getMax() / 2);
 //                rosyProgress.setmCircleRadius(progress / 10 + 5);
+                rosyProgress.setmCircleStrokeWidth(progress * 10 / 100);
                 rosyProgress.postInvalidate();
             }
 
@@ -136,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * 设置是否自动旋转
          */
-        mCheckbox.setOnClickListener(new View.OnClickListener() {
+        mStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Random random = new Random(100);
@@ -146,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * 设置向左还是向右自动旋转
          */
-        mSwitchLeftright.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mSwitchShowHide.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 rosyProgress.setmIsShowSmall(isChecked);
